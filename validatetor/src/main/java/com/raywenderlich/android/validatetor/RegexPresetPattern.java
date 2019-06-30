@@ -94,13 +94,24 @@ class RegexPresetPattern {
    * 2. The digits 0 through 9
    * 3. The characters, !#$%&'*+-/=?^_`{|}~
    * 4. The character "." provided that it is not the first or last character in the local-part.
+   * THIS IS NO MATCH trungle.dev@gmail.com [IGNORE]
    */
-  final static Pattern EMAIL = Pattern.compile("^((([!#$%&'*+\\-/=?^_`{|}~\\w])|" +
-      "([!#$%&'*+\\-/=?^_`{|}~\\w][!#$%&'*+\\-/=?^_`{|}~\\w]*[!#$%&'*+\\-/=?^_`{|}~\\w]))[@]\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*)$");
+//  final static Pattern EMAIL = Pattern.compile("^((([!#$%&'*+\\-/=?^_`{|}~\\w])|" +
+//      "([!#$%&'*+\\-/=?^_`{|}~\\w][!#$%&'*+\\-/=?^_`{|}~\\w]*[!#$%&'*+\\-/=?^_`{|}~\\w]))[@]\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*)$");
+
+  final static Pattern EMAIL = Pattern.compile("^((([!#$%&'*+\\-/=?^_`{|}~\\w])|([!#$%&'*+\\-/=?^_`{|}~\\w][!#$%&'*+\\-/=?^_`{|}~\\w]*[!#$%&'*+\\-/=?^_`{|}~\\w]))[@]\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*)$");
+
 
   /**
    * Matches a hyphen separated US phone number, of the form ANN-NNN-NNNN, where A is between 2
    * and 9 and N is between 0 and 9.
    */
   final static Pattern PHONE = Pattern.compile("^[2-9]\\d{2}-\\d{3}-\\d{4}$");
+
+  /**
+   * Matches a hyphen separated VI phone number
+   */
+  final static Pattern VI_NUMBER_PHONE = Pattern.compile("^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$");
+
+
 }

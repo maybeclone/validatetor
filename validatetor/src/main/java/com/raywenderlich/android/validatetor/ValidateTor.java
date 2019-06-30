@@ -128,6 +128,16 @@ public class ValidateTor {
   }
 
   /**
+   * check if the string is a Vi phone number
+   *
+   * @param str the str
+   * @return the boolean
+   */
+  public boolean isViPhoneNumber(String str) {
+    return regexMatcher.validate(str, RegexPresetPattern.VI_NUMBER_PHONE);
+  }
+
+  /**
    * check if the string has a length of zero.
    *
    * @param str the str
